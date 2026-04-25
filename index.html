@@ -2,43 +2,49 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>태블릿 사용 등록</title>
+<title>태블릿 명단 입력</title>
 <style>
-  body { text-align:center; margin-top:50px; font-size:20px; }
-  input, button {
-    font-size:20px;
-    padding:10px;
-    margin:10px;
-    width:250px;
+  body {
+    font-family: Arial;
+    text-align: center;
+    margin-top: 50px;
+  }
+  input, select, button {
+    font-size: 22px;
+    padding: 12px;
+    margin: 10px;
+    width: 300px;
   }
 </style>
 </head>
 <body>
 
-<h2 id="deviceTitle"></h2>
+<h2>태블릿 명단 입력</h2>
 
-<input type="text" id="name" placeholder="이름 입력"><br>
+<input type="text" id="device" placeholder="태블릿 번호 입력 예: TAB-01"><br>
+
+<input type="text" id="name" placeholder="학생 이름 입력"><br>
 
 <select id="status">
   <option value="사용 시작">사용 시작</option>
   <option value="반납">반납</option>
 </select><br>
 
-<button onclick="submitData()">제출</button>
+<button onclick="submitData()">기록하기</button>
 
 <script>
-// URL에서 device 값 가져오기
-const urlParams = new URLSearchParams(window.location.search);
-const device = urlParams.get('device');
-
-document.getElementById("deviceTitle").innerText = device + " 사용";
-
 function submitData() {
-  const name = document.getElementById("name").value;
+  const device = document.getElementById("device").value.trim();
+  const name = document.getElementById("name").value.trim();
   const status = document.getElementById("status").value;
 
+  if (!device) {
+    alert("태블릿 번호를 입력하세요.");
+    return;
+  }
+
   if (!name) {
-    alert("이름 입력하세요");
+    alert("학생 이름을 입력하세요.");
     return;
   }
 
@@ -53,7 +59,11 @@ function submitData() {
   .then(res => res.json())
   .then(() => {
     alert("기록 완료!");
+    document.getElementById("device").value = "";
     document.getElementById("name").value = "";
+  })
+  .catch(() => {
+    alert("기록 실패. 인터넷 또는 Apps Script 설정을 확인하세요.");
   });
 }
 </script>
