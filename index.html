@@ -21,7 +21,33 @@
 
 <h2>태블릿 명단 입력</h2>
 
-<input type="text" id="device" placeholder="태블릿 번호 입력 예: TAB-01"><br>
+<select id="device">
+  <option value="">태블릿 번호 선택</option>
+  <option value="TAB-01">TAB-01</option>
+  <option value="TAB-02">TAB-02</option>
+  <option value="TAB-03">TAB-03</option>
+  <option value="TAB-04">TAB-04</option>
+  <option value="TAB-05">TAB-05</option>
+  <option value="TAB-06">TAB-06</option>
+  <option value="TAB-07">TAB-07</option>
+  <option value="TAB-08">TAB-08</option>
+  <option value="TAB-09">TAB-09</option>
+  <option value="TAB-10">TAB-10</option>
+  <option value="TAB-11">TAB-11</option>
+  <option value="TAB-12">TAB-12</option>
+  <option value="TAB-13">TAB-13</option>
+  <option value="TAB-14">TAB-14</option>
+  <option value="TAB-15">TAB-15</option>
+  <option value="TAB-16">TAB-16</option>
+  <option value="TAB-17">TAB-17</option>
+  <option value="TAB-18">TAB-18</option>
+  <option value="TAB-19">TAB-19</option>
+  <option value="TAB-20">TAB-20</option>
+  <option value="TAB-21">TAB-21</option>
+  <option value="TAB-22">TAB-22</option>
+  <option value="TAB-23">TAB-23</option>
+  <option value="TAB-24">TAB-24</option>
+</select><br>
 
 <input type="text" id="name" placeholder="학생 이름 입력"><br>
 
@@ -34,12 +60,12 @@
 
 <script>
 function submitData() {
-  const device = document.getElementById("device").value.trim();
+  const device = document.getElementById("device").value;
   const name = document.getElementById("name").value.trim();
   const status = document.getElementById("status").value;
 
   if (!device) {
-    alert("태블릿 번호를 입력하세요.");
+    alert("태블릿 번호를 선택하세요.");
     return;
   }
 
