@@ -51,15 +51,16 @@
 
 <input type="text" id="name" placeholder="학생 이름 입력"><br>
 
-<select id="status">
-  <option value="사용 시작">사용 시작</option>
-  <option value="반납">반납</option>
-</select><br>
-
-<!-- 🔥 이어폰 추가 -->
+<!-- 🔥 이어폰 먼저 -->
 <select id="earphone">
   <option value="이어폰 대여 안함">이어폰 대여 안함</option>
   <option value="이어폰 대여함">이어폰 대여함</option>
+</select><br>
+
+<!-- 🔥 상태는 아래 -->
+<select id="status">
+  <option value="사용 시작">사용 시작</option>
+  <option value="반납">반납</option>
 </select><br>
 
 <button onclick="submitData()">기록하기</button>
@@ -69,7 +70,7 @@ function submitData() {
   const device = document.getElementById("device").value;
   const name = document.getElementById("name").value.trim();
   const status = document.getElementById("status").value;
-  const earphone = document.getElementById("earphone").value; // 🔥 추가
+  const earphone = document.getElementById("earphone").value;
 
   if (!device) {
     alert("태블릿 번호를 선택하세요.");
@@ -87,7 +88,7 @@ function submitData() {
       name: name,
       device: device,
       status: status,
-      earphone: earphone // 🔥 추가
+      earphone: earphone
     })
   })
   .then(res => res.json())
