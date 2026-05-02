@@ -99,25 +99,3 @@ function submitData() {
 
 </body>
 </html>
-
-그리고 Apps Script는 이것만 쓰세요.
-
-function doPost(e) {
-  const sheet = SpreadsheetApp
-    .getActiveSpreadsheet()
-    .getSheetByName("태블릿기록");
-
-  const data = JSON.parse(e.postData.contents);
-
-  sheet.appendRow([
-    new Date(),
-    data.name,
-    data.device,
-    data.earphoneCheck,
-    data.status
-  ]);
-
-  return ContentService
-    .createTextOutput("OK")
-    .setMimeType(ContentService.MimeType.TEXT);
-}
