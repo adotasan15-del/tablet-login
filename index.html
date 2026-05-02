@@ -91,13 +91,13 @@ function submitData() {
   }
 alert("이어폰: " + earphone + " / 상태: " + status);
   
-  fetch("https://script.google.com/macros/s/AKfycbx6WECAKKp6cHLd0rAM0fxQfTtsQExScs2379XZa_8ZeK4rML0POwYI7To9-fD-S18F/exec", {
-    method: "POST",
-    mode: "no-cors",
-    body: JSON.stringify({
-      name: name,
-      device: device,
-      earphone: earphone,
-      status: status
-    })
-  });
+fetch("https://script.google.com/macros/s/AKfycbx6WECAKKp6cHLd0rAM0fxQfTtsQExScs2379XZa_8ZeK4rML0POwYI7To9-fD-S18F/exec", {
+  method: "POST",
+  mode: "no-cors",
+  body: JSON.stringify({
+    name: name,
+    device: device,
+    earphoneCheck: earphone,
+    status: status
+  })
+});
