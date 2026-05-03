@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<h2>태블릿 명단 입력</h2>
+<h2>태블릿 명단 입력 (v2)</h2>
 
 <select id="device">
   <option value="">태블릿 번호 선택</option>
@@ -64,8 +64,6 @@
 <button onclick="submitData()">기록하기</button>
 
 <script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6WECAKKp6cHLd0rAM0fxQfTtsQExScs2379XZa_8ZeK4rML0POwYI7To9-fD-S18F/exec";
-
 function submitData() {
   const device = document.getElementById("device").value;
   const name = document.getElementById("name").value.trim();
@@ -82,7 +80,7 @@ function submitData() {
     return;
   }
 
-  fetch(SCRIPT_URL, {
+  fetch("https://script.google.com/macros/s/AKfycbx6WECAKKp6cHLd0rAM0fxQfTtsQExScs2379XZa_8ZeK4rML0POwYI7To9-fD-S18F/exec", {
     method: "POST",
     mode: "no-cors",
     body: JSON.stringify({
@@ -93,7 +91,7 @@ function submitData() {
     })
   });
 
-  alert("기록 요청 완료!");
+  alert("기록 완료!");
   document.getElementById("device").value = "";
   document.getElementById("name").value = "";
 }
@@ -101,3 +99,4 @@ function submitData() {
 
 </body>
 </html>
+
