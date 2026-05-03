@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<h2>태블릿 명단 입력</h2>
+<h2>태블릿 명단 입력 (v2)</h2>
 
 <select id="device">
   <option value="">태블릿 번호 선택</option>
@@ -86,7 +86,7 @@ function submitData() {
     body: JSON.stringify({
       name: name,
       device: device,
-      earphoneCheck: earphone,
+      earphone: earphone,
       status: status
     })
   });
